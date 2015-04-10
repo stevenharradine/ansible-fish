@@ -1,5 +1,15 @@
 ---
 dependencies:
-  - role: meta/repository
+  - role: colstrom.apt-repository
     repository_key: '0x27557f056dc33ca5'
     repository_url: 'deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu trusty main'
+galaxy_info:
+  author: Chris Olstrom
+  description: fish - the friendly interactive shell
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - trusty
+  categories:
+    - shell
