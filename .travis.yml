@@ -28,10 +28,10 @@ script:
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
-  fish -v 
-  |& grep -q 'fish, version' 
-  && (echo 'Fish installed') 
-  || (echo 'Fish not installed')
+    fish -v 
+    |& grep -q 'fish, version' 
+    && (echo 'Fish installed') 
+    || (echo 'Fish not installed')
 
   # Just for good measure
   - fish -v
