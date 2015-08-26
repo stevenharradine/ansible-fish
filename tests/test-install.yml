@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: telusdigital.apt-repository
+      repository_key: "0x27557f056dc33ca5"
+      repository_url: "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu {{ ansible_distribution_release }} main"
+    - role: ansible-fish
