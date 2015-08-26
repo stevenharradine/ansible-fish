@@ -35,4 +35,4 @@ script:
 
   # Just for good measure
   - fish -v
-  
+
