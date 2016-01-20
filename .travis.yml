@@ -1,38 +1,15 @@
 ---
-language: python
-python: "2.7"
-
-env:
-  - SITE=test-install.yml
-
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y curl
+sudo: required
+# docker is required to run tests
+services: docker
 
 install:
-  # Install Ansible.
-  - pip install ansible
-
-  # Add ansible.cfg to pick up roles path.
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-
-  # Install dependencies
-  - ansible-galaxy install telusdigital.apt-repository
+  - bundle install
 
 script:
-  # Check the role/playbook's syntax.
-  - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
+  # run kitchen tests (destroy, create, converge, setup, verify and destroy)
+  - bundle exec kitchen test
 
-  # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
-
-  # Run the role/playbook again, checking to make sure it's idempotent.
-  - >
-    fish -v 
-    |& grep -q 'fish, version' 
-    && (echo 'Fish installed') 
-    || (echo 'Fish not installed')
-
-  # Just for good measure
-  - fish -v
-
+notifications:
+  slack:
+    secure: K+Qf40Tui8xo71/0m6v6B+LYl8eTfiBYUu5u8+amGNIERtfbhtvzuYhIYBZGaa1cWJeQc8woAbdDvh4vh/Lj22TR3PsNG3UGgb75lSrYpJ9XJOiuBeyP35nXF1lhCOzFVhwziMdQWy1nfvl16dTIb73G/tFCZMotu9Jl2bZDl2G88bkFZlLtuX3rEXbmyqNIYiy3Z3f+3N5hujenBOABGblnui63vjROy4slM991UbdX++c/ogg+czzopl7C3zAqCPj4fqp7Wu5S0jwn15IFy1dgnJzVqlmvrpwxkzl7K3K9lvRnG/dk0louNlaUiIinzZ3npUqOPkY66e7SoiFhgjeXRHK/33it0UriifPcw1+f9ZvbzyULlYmvvIRAOyQyKikLC/SP4Q4X/Y55KdKmE8wB54q8bRKwSjlTtkDCLBmYiAApV58uyL1hyqHee7wQkYzLHZ1IkE35/mrBxDCoy8QrmCQBmdJv2H+dQVc8VhTWVSOMo+FLHr0d7jp/Kmngvo/OJYbAwPPQbl7vjOSHlLkbf9tqFRGsMzZsiqeTrRxWe4FVB599gA7h7KJ3CAzSsgtpugd+m9mk6/GBoYooouBDkxx4qD6LSMLjhYerYYCgHQCX5s1p9+A1cXtZ3T6DSUncQ7Hx0Q+beLWS8MOmFdqBNVt5K2CND5fdwiOBLqo=

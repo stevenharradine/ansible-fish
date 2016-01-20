@@ -2,6 +2,8 @@
 
 [fish](http://fishshell.com/) - the friendly interactive shell
 
+[![Build Status](https://travis-ci.org/telusdigital/ansible-fish.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-fish)
+
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 Tunables
