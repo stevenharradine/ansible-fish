@@ -2,7 +2,7 @@
 - name: Install Packages | apt
   apt:
     state: latest
-    pkg: fish
+    name: fish
   tags:
     - fish
     - software-installation
