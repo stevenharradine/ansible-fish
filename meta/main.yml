@@ -14,5 +14,5 @@ galaxy_info:
       - precise
       - trusty
       - utopic
-  categories:
+  galaxy_tags:
     - system
