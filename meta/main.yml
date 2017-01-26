@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - role: telusdigital.apt-repository
+  - src: telusdigital.apt-repository
     repository_key: "0x27557f056dc33ca5"
     repository_url: "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu {{ ansible_distribution_release }} main"
 galaxy_info:
