@@ -1,18 +1,20 @@
 ---
 dependencies:
-  - role: telusdigital.apt-repository
+  - src: telusdigital.apt-repository
     repository_key: "0x27557f056dc33ca5"
     repository_url: "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu {{ ansible_distribution_release }} main"
 galaxy_info:
-  author: "Chris Olstrom"
-  company: "TELUS digital"
-  description: "fish - the friendly interactive shell"
+  author: 'Chris Olstrom'
+  company: 'TELUS digital'
+  description: 'fish - the friendly interactive shell'
+  issue_tracker_url: 'https://github.com/telusdigital/ansible-fish/issues'
   license: MIT
+  min_ansible_version: 1.9
   platforms:
     - name: Ubuntu
       versions:
       - precise
       - trusty
       - utopic
-  categories:
+  galaxy_tags:
     - system
